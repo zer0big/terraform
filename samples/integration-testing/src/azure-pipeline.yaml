@@ -46,11 +46,11 @@ stages:
         inputs:
           command: validate
           workingDirectory: $(terraformWorkingDirectory)
-      # Step 5: run Terraform plan to validate HCL syntax
-      - task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-cli.TerraformCLI@0
-        displayName: 'Run terraform plan'
+            # Step 5: run Terraform plan to validate HCL syntax
+      - task: TerraformCLI@0
         inputs:
-          command: plan
-          workingDirectory: $(terraformWorkingDirectory)
-          environmentServiceName: $(serviceConnection)
-          commandOptions: -var location=$(azureLocation)
+          command: 'plan'
+          workingDirectory: '$(terraformWorkingDirectory)'
+          environmentServiceName: 'Microsoft Azure Sponsorship - MVP (1199b626-a317-4559-9289-caba7859ee88)'
+          commandOptions: '-var location=$(azureLocation)'
+          allowTelemetryCollection: true
